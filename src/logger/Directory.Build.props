@@ -1,0 +1,11 @@
+<Project>
+  <Import Project="$(SolutionDir)Directory.Build.props" />
+
+  <!-- Compiler Configuration -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PrecompiledMode>false</PrecompiledMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemDefinitionGroup>
+</Project>

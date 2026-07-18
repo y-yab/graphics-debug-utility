@@ -1,0 +1,96 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+    "settings": {
+        "gtest-adapter.debugConfig": "Run Test",
+        "gtest-adapter.supportLocation": true,
+        "gtest-adapter.refreshAfterBuild": true,
+        "gtest-adapter.runAfterBuild": true,
+        "editor.tokenColorCustomizations": {
+            "comments": "#00cc00",
+            "textMateRules": [
+                {
+                    "scope": "googletest.failed",
+                    "settings": {
+                        "foreground": "#f00"
+                    }
+                },
+                {
+                    "scope": "googletest.passed",
+                    "settings": {
+                        "foreground": "#0f0"
+                    }
+                },
+                {
+                    "scope": "googletest.run",
+                    "settings": {
+                        "foreground": "#0f0"
+                    }
+                }
+            ]
+        }
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Run Test",
+                "type": "cppvsdbg",
+                "request": "launch",
+                "program": "${workspaceFolder}/bin/x64/Debug/unit_test.exe",
+                "args": [],
+                "stopAtEntry": false,
+                "cwd": "${workspaceFolder}/bin/x64/Debug",
+                "environment": []
+            }        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Debug Build",
+                "type": "shell",
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "command": "msbuild",
+                "args": [
+                    "graphics_debug_utility.sln",
+                    "/p:Configuration=Debug",
+                    "/p:Platform=x64",
+                    "/p:GenerateFullPaths=true",
+                    "/t:build",
+                    "/consoleloggerparameters:Summary"
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                },
+                "presentation": {},
+                "problemMatcher": "$msCompile"
+            },
+            {
+                "label": "Release Build",
+                "type": "shell",
+                "group": "build",
+                "command": "msbuild",
+                "args": [
+                    "graphics_debug_utility.sln",
+                    "/p:Configuration=Release",
+                    "/p:Platform=x64",
+                    "/p:GenerateFullPaths=true",
+                    "/t:build",
+                    "/consoleloggerparameters:Summary"
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                },
+                "presentation": {},
+                "problemMatcher": "$msCompile"
+            }
+        ]
+    }
+}

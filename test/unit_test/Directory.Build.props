@@ -1,0 +1,10 @@
+<Project>
+  <Import Project="$(SolutionDir)Directory.Build.props" />
+
+  <ItemDefinitionGroup>
+    <Link>
+      <!-- Settings to display in Test Explorer -->
+      <AdditionalDependencies>gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>
